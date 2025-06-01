@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEMON SALSA</title>
+  <link href="producto/producto.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <script defer src="producto/texto-whatsapp.js"></script>
+  <style>
+</style>
+</head>
+
+<body>
+  <div class="contenedor-principal">
+
+    <div class="boton-inicio">
+      <a href="index.html" class="btn">INICIO</a>
+    </div>
+
+    <header class="encabezado">
+      <h1 id="nombre-producto" class="titulo">Lemon Salsa <br> Bote Mediano</h1>
+      <p class="subtitulo">En esta presentacion de la salsa es el bote mediano <br> 
+        que contiene 250 gr de LEMON SALSA. </p>
+    </header>
+
+    <section class="articulo">
+        <div class="producto">
+        <img id="imagen-producto" src="fotos/mediana.jpg" alt="Logo de Lemon Salsa" class="imagen-producto">
+        <p class="descripcion">Lemon Salsa es una salsa especial, pensada para las personas intolerantes a la lactosa
+        ya que está hecha a base de leche de soja, huevo y limón, no contiene conservantes.</p>
+      </div>
+    </section>
+
+    <div class="botones">
+      <button onclick="abrirModal()">Realizar Pedido</button>
+      <span>O</span>
+      <button id="btn-whatsapp" class="boton-whatsapp">
+        Contáctanos al WhatsApp
+      </button>
+
+    </div>
+
+    <footer class="pie-pagina">
+      © 2025 Lemon Salsa. Todos los derechos reservados. <br>
+      Contacto de Referencia: +591 69394741
+    </footer>
+  </div>
+
+  <div id="modal">
+    <div class="modal-content">
+      <button onclick="cerrarModal()" class="close-button">&times;</button>
+      <div id="contenidoFormulario">
+        <h2>Formulario de Compra</h2>
+        <form id="pedidoForm">
+          <label>Nombre completo</label>
+          <input name="entry.1986502839" type="text" required>
+
+          <label>Número de Celular</label>
+          <input name="entry.1520533895" type="tel" required>
+
+          <label>Cantidad</label>
+          <input name="entry.430860352" type="number" min="1" required>
+
+          <input type="hidden" name="entry.1599345325" value="Bote Pequeño">
+
+          <button type="submit">Enviar pedido</button>
+        </form>
+      </div>
+
+      <div id="mensajeExito">
+        <h2>¡Pedido enviado con éxito! ✅</h2>
+        <p>Nos pondremos en contacto contigo pronto.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("pedidoForm");
+    const modal = document.getElementById("modal");
+    const contenidoFormulario = document.getElementById("contenidoFormulario");
+    const mensajeExito = document.getElementById("mensajeExito");
+
+    function abrirModal() {
+      modal.classList.add("flex");
+    }
+
+    function cerrarModal() {
+      modal.classList.remove("flex");
+      contenidoFormulario.style.display = "block";
+      mensajeExito.style.display = "none";
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLSftSTR_B2cdwJEleGY32kVAiBFcn1K-e8BA0haTopl_yvhOdg/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: data,
+      }).then(() => {
+        form.reset();
+        contenidoFormulario.style.display = "none";
+        mensajeExito.style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>
+
