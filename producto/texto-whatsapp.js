@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const mensaje = `Hola.%0AQuiero%20hacerme%20más%20información%20sobre%20este%20producto%3A%0A${encodeURIComponent(nombreProducto)}%0AImagen%3A%20${encodeURIComponent(urlImagen)}`;
 
-    const enlace = `https://wa.me/59163281628?text=${mensaje}`;
+    const enlace = `https://wa.me/+59169394741?text=${mensaje}`;
 
     boton.onclick = function () {
       window.location.href = enlace;
