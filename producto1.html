@@ -6,7 +6,12 @@
   <title>LEMON SALSA</title>
   <link href="producto/producto.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <!-- Firebase (compat) SDKs necesarios para usar la sintaxis que tienes -->
+  <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
   <script defer src="producto/texto-whatsapp.js"></script>
+  <script defer src="producto/app.js"></script>
   <style>
 </style>
 </head>
@@ -29,8 +34,9 @@
         <img id="imagen-producto" src="fotos/pequeño.jpg" alt="Logo de Lemon Salsa" class="imagen-producto">
         <p class="descripcion">Lemon Salsa es una salsa especial, pensada para las personas intolerantes a la lactosa
         ya que está hecha a base de leche de soja, huevo y limón, no contiene conservantes.</p>
+        <p class="precio"><br> Precio: 5 Bs.</p>
         </div>
-
+        
     </section>
 
     <div class="botones">
@@ -55,17 +61,18 @@
         <h2>Formulario de Compra</h2>
         <form id="pedidoForm">
           <label>Nombre completo</label>
-          <input name="entry.1986502839" type="text" required>
+          <input id="nombre" type="text" required>
 
           <label>Número de Celular</label>
-          <input name="entry.1520533895" type="tel" required>
+          <input id="celular" type="tel" required>
 
           <label>Cantidad</label>
-          <input name="entry.430860352" type="number" min="1" required>
+          <input id="cantidad" type="number" min="1" required>
 
-          <input type="hidden" name="entry.1599345325" value="Bote Pequeño">
+          <input type="hidden" id="producto" value="Bote Pequeño">
 
           <button type="submit">Enviar pedido</button>
+
         </form>
       </div>
 
@@ -92,20 +99,6 @@
       mensajeExito.style.display = "none";
     }
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const data = new FormData(form);
-      fetch("https://docs.google.com/forms/d/e/1FAIpQLSftSTR_B2cdwJEleGY32kVAiBFcn1K-e8BA0haTopl_yvhOdg/formResponse", {
-        method: "POST",
-        mode: "no-cors",
-        body: data,
-      }).then(() => {
-        form.reset();
-        contenidoFormulario.style.display = "none";
-        mensajeExito.style.display = "block";
-      });
-    });
   </script>
 </body>
 </html>

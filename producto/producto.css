@@ -115,6 +115,14 @@
   font-size: 16px;
 }
 
+.precio {
+  margin-top: 12px;
+  font-weight: 500;
+  text-align: center;
+  color: #1a202c;
+  font-size: 20px;
+}
+
 .producto a {
   text-decoration: none;
   color: inherit; /* Mantiene el color original del texto */

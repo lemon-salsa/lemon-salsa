@@ -29,11 +29,12 @@
 }
 
 .logo {
-  width: 500px;
-  height: 500px;
+  max-width: 100%;    /* que no exceda el ancho del contenedor */
+  height: auto;       /* para mantener la proporción */
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  max-height: 200px;  /* opcional para limitar la altura máxima */
 }
 
 .titulo-principal {

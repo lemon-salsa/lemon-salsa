@@ -1,10 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const boton = document.getElementById("btn-whatsapp");
-  const producto = document.getElementById("nombre-producto");
 
-  if (boton && producto) {
-    const nombreProducto = producto.textContent.trim();
+  if (boton) {
 
     // Obtener la hora local del usuario
     const hora = new Date().getHours();
@@ -18,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
       saludo = "Buenas noches";
     }
 
-    const mensaje = `${saludo}.%0AQuiero%20más%20información%20sobre%20este%20producto%3A%0A${encodeURIComponent(nombreProducto)}%0A`;
+    const mensaje = `${saludo}.%0AQuiero%20hacer%20un%20pedido%20de%20Lemon%20Salsa`;
 
     const enlace = `https://wa.me/59163281628?text=${mensaje}`;
 
